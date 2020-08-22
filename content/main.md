@@ -20,7 +20,7 @@ package main
 import "github.com/cgliu-create/potatoapi/lang/goapi"
 
 func main() {
-  api := goapi.Authorize("potatopotato")
+  api := goapi.Authorize("potatopotatopotato")
 }
 ```
 
@@ -29,29 +29,29 @@ from pybinding import potato
 
 if __name__=="__main__":
   api = potato()
-  api.authorize("potatopotato")
+  api.authorize("potatopotatopotato")
 ```
 
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Token: potatopotato"
+  -H "Token: potatopotatopotato"
 ```
 
 ```javascript
 const api = require("jsbinding");
 
-api.authorize('potatopotato');
+api.authorize('potatopotatopotato');
 ```
 
-> Make sure to replace `potatopotato` with your API key.
+> Make sure to replace `potatopotatopotato` with your API key.
 
 Potato API uses API keys to allow access to the API. You can register a new API key with the [developer portal](http://example.com/developers).
 
 Potato API expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-`Token: potatopotato`
+`Token: potatopotatopotato`
 
 <aside class="notice">
-Replace <code>potatopotato</code> with your personal API key.
+Replace <code>potatopotatopotato</code> with your personal API key.
 </aside>

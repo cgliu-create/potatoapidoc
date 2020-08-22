@@ -9,7 +9,7 @@ title: Errors
 The Potato API uses the following status codes:
 
 
-Code | Meaning
+Status Code | Meaning
 ---------- | -------
 200 | Product requested successfully
 201 | Product created successfully 

@@ -13,7 +13,7 @@ package main
 import "github.com/cgliu-create/potatoapi/lang/goapi"
 
 func main() {
-  api := goapi.Authorize("potatopotato")
+  api := goapi.Authorize("potatopotatopotato")
   Name := "abc"
   Price := 123
   response := api.CreateProduct(Name, Price)
@@ -25,7 +25,7 @@ from pybinding import potato
 
 if __name__=="__main__":
   api = potato()
-  api.authorize("potatopotato")
+  api.authorize("potatopotatopotato")
   name = "abc"
   price = 123
   response = api.createProduct(name, price)
@@ -33,14 +33,14 @@ if __name__=="__main__":
 
 ```shell
 curl -d '{"Name":"abcd", "Price":1234}'
-  -H "Content-Type: application/json" -H "Token: potatopotato"
+  -H "Content-Type: application/json" -H "Token: potatopotatopotato"
   -X POST "https://localhost:8000/api/products"
 ```
 
 ```javascript
 const api = require("jsbinding");
 
-api.authorize('potatopotato');
+api.authorize('potatopotatopotato');
 let name = "abc";
 let price = 123;
 let response = api.createProduct(name, price);
