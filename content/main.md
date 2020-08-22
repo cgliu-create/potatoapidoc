@@ -5,11 +5,10 @@ title: API Reference
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Potato API! A simple API that holds product information: name and price.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+Language bindings are in Shell, Go, Python, and Javascript! 
 
-**This example API documentation page was created with [DocuAPI](https://github.com/bep/docuapi/), a multilingual documentation theme for the static site generator [Hugo](http://gohugo.io/).** 
 
 # Authentication
 
@@ -18,42 +17,41 @@ We have language bindings in Shell, Ruby, and Python! You can view code examples
 ```go
 package main
 
-import "github.com/bep/kittn/auth"
+import "github.com/cgliu-create/potatoapi/lang/goapi"
 
 func main() {
-	api := auth.Authorize("meowmeowmeow")
-
-	// Just to make it compile
-	_ = api
+  api := goapi.Authorize("potatopotato")
 }
 ```
 
 ```python
-import kittn
+from pybinding import potato
 
-api = kittn.authorize('meowmeowmeow')
+if __name__=="__main__":
+  api = potato()
+  api.authorize("potatopotato")
 ```
 
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+  -H "Token: potatopotato"
 ```
 
 ```javascript
-const kittn = require('kittn');
+const api = require("jsbinding");
 
-let api = kittn.authorize('meowmeowmeow');
+api.authorize('potatopotato');
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Make sure to replace `potatopotato` with your API key.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+Potato API uses API keys to allow access to the API. You can register a new API key with the [developer portal](http://example.com/developers).
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Potato API expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: meowmeowmeow`
+`Token: potatopotato`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Replace <code>potatopotato</code> with your personal API key.
 </aside>

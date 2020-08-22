@@ -8,58 +8,64 @@ title: Read Specific Product
 ```go
 package main
 
-import "github.com/bep/kittn/auth"
+import "github.com/cgliu-create/potatoapi/lang/goapi"
 
 func main() {
-	api := auth.Authorize("meowmeowmeow")
-
-	_ = api.GetKitten(2)
+  api := goapi.Authorize("potatopotato")
+  id := 2
+  response := api.ReadProduct(id) 
 }
 ```
 
 
 ```python
-import kittn
+from pybinding import potato
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
+if __name__=="__main__":
+  api = potato()
+  api.authorize("potatopotato")
+  id = 2
+  response = api.readProduct(id)
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl
+    -H "Token: potatopotato"
+    -X GET "https://localhost:8000/api/products/2"
 ```
 
 ```javascript
-const kittn = require('kittn');
+const api = require("jsbinding");
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+api.authorize('potatopotato');
+let id = 2;
+let response = api.readProduct(id);
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+    "ID": 2,
+    "CreatedAt": "2020-08-18T14:01:03.439858-04:00",
+    "UpdatedAt": "2020-08-18T14:01:03.439858-04:00",
+    "DeletedAt": null,
+    "Name": "FreshPotato",
+    "Price": 100
 }
+or
+"Product not found"
 ```
 
 This endpoint retrieves a specific product.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
 ### HTTP Request
 
-`GET https://localhost:8000/api/read/<ID>`
+`GET https://localhost:8000/api/products/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+ID | The ID of the Product to retrieve
 

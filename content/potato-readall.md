@@ -8,32 +8,34 @@ title: Read All Products
 ```go
 package main
 
-import "github.com/bep/kittn/auth"
+import "github.com/cgliu-create/potatoapi/lang/goapi"
 
 func main() {
-	api := auth.Authorize("meowmeowmeow")
-
-	_ = api.GetKittens()
+  api := goapi.Authorize("potatopotato")
+  response := api.ReadAllProduct()
 }
 ```
 
 ```python
-import kittn
+from pybinding import potato
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+if __name__=="__main__":
+  api = potato()
+  api.authorize("potatopotato")
+  response = api.readAllProduct()
 ```
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl
+    -H "Token: potatopotato"
+    -X GET "https://localhost:8000/api/products"
 ```
 
 ```javascript
-const kittn = require('kittn');
+const api = require("jsbinding");
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+api.authorize('potatopotato');
+let response = api.readAllProduct();
 ```
 
 > The above command returns JSON structured like this:
@@ -41,35 +43,32 @@ let kittens = api.kittens.get();
 ```json
 [
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
+    "ID": 1,
+    "CreatedAt": "2020-08-18T14:01:03.439858-04:00",
+    "UpdatedAt": "2020-08-18T14:01:03.439858-04:00",
+    "DeletedAt": null,
+    "Name": "MoldyPotato",
+    "Price": 10
   },
   {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "ID": 2,
+    "CreatedAt": "2020-08-18T14:01:03.439858-04:00",
+    "UpdatedAt": "2020-08-18T14:01:03.439858-04:00",
+    "DeletedAt": null,
+    "Name": "FreshPotato",
+    "Price": 100
   }
 ]
+or
+"Product not found"
 ```
 
 This endpoint retrieves all products.
 
 ### HTTP Request
 
-`GET https://localhost:8000/api/readall`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+`GET https://localhost:8000/api/products`
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Remember — all requests require authentication!
 </aside>
